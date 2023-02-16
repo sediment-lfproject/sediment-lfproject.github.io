@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--
+ * Copyright (c) 2023 Peraton Labs
+ * SPDX-License-Identifier: CC-BY-4.0 
+-->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +21,7 @@
             <ul>
                 <li><a href="docs.html">docs</a></li>
                 <li><a href="community.html"><b>community</b></a></li>
-                <li><a href="#">charter</a></li>
+                <li><a href="charter.html">charter</a></li>
                 <li><a class="button" href="https://github.com/sediment-lfproject"><img class="github-logo"
                             src="github-mark-white.svg">code</a></li>
             </ul>
@@ -26,71 +29,100 @@
     </header>
     <main class="community-main">
         <section>
-            <h1>Maintaining</h1>
+            <h1>Process, Roles, Responsibilities, and Guidelines</h1>
             <hr>
             <div class="subsection">
-                <h2>Process, Roles, Responsibilities and Guidelines</h2>
-                <h3>Committers</h3>
-                <p>
-                    Committers have push access to the main branch of the sediment-lfproject github.
-                    Committers are generally in charge of merging pull requests from contributers and more or less
-                    have the final say in what gets merged into the main branch.
-                </p>
+                <div>
+                    <p>This project identifies the following member roles:</p>
+                    <ul>
+                        <li>Technical Steering Committee</li>
+                        <li>Committers</li>
+                        <li>Contributors</li>
+                    </ul>
+                    <p>Please refer to the <a href="charter.html" class="link">charter</a> for the definitions and
+                        responsibilities of these roles.</p>
                 </div>
-                <h3>Maintainers</h3>
                 <p>
-                    Maintainers are responsible for which features get included and excluded from releases
-                    as well as being ultimately responsible for the releases themselves.  
+                    Committers can additionally elect members to serve in a
+                    maintainer role. A maintainer is responsible for a
+                    repository from a technical perspective, ensuring code
+                    quality, robustness, and functionality of the code. They are
+                    responsible for managing pull requests, software
+                    depdendencies, documentation, releases, changelogs, and
+                    coordination within the team of committers and contributors.
                 </p>
-                <h3>Techincal Steering Committee</h3>
-                <p>???</p>
-                <h3>Contributers</h3> 
-                <p>A contributer is anyone who makes a pull request on github and has it merged into the main branch.
-                    If you want to contribute, please read the <a href="#" class="link">contributing guidelines</a> before beginning.  
+            </div>
+
+        </section>
+        <section>
+            <h1>Contributing</h1>
+            <hr>
+            <div class="subsection">
+                <h2>Contributing guidelines</h2>
+                <p>
+                    Please contact one of the current maintainers if you wish to contribute
                 </p>
             </div>
             <div class="subsection">
-                <h2>Current Technical Steering Committee Members</h2>
+                <h2>Coding style guidelines</h2>
+                <p>
+                    Please follow this <a href="sediment_coding-style.html" class="link">coding style.</a> For
+                    convenience we
+                    provide
+                    an <a href="sediment-uncrustify.cfg" class="link">uncrustify
+                        configuration.</a>
+                </p>
+            </div>
+            <div class="subsection">
+                <h2>Forum</h2>
+                <p>
+                    All discussions pertaining to the SEDIMENT-lfproject are mediated through <a
+                        href="https://github.com/sediment-lfproject/remote-attestation/issues" class="link">github
+                        issues</a>
+                </p>
+            </div>
+        </section>
+        <section>
+            <h1>Team</h1>
+            <hr>
+            <div class="subsection">
+                <h2>Technical Steering Committee Members</h2>
                 <a href="https://github.com/dshur389" class="github-avatar"><img
                         src="https://github.com/dshur389.png"><span>David Shur</span></a>
                 <a href="https://github.com/ta-chen" class="github-avatar"><img
                         src="https://github.com/ta-chen.png"><span>Ta Chen</span></a>
                 <a href="https://github.com/yowjian" class="github-avatar"><img
                         src="https://github.com/yowjian.png"><span>Yow Jian</span></a>
-                <a href="https://github.com/benjaminflin" class="github-avatar"><img
-                        src="https://github.com/benjaminflin.png"><span>Giovanni Di Crescenzo</span></a>
-
+                <a href="https://github.com/gdcatgithub" class="github-avatar"><img
+                        src="https://github.com/gdcatgithub.png"><span>Giovanni Di Crescenzo</span></a>
+                <a href="https://github.com/rajesh-krishnan" class="github-avatar"><img
+                        src="https://github.com/rajesh-krishnan.png"><span>Rajesh Krishnan</span></a>
+                
             </div>
             <div class="subsection">
-                <h2>Current Maintainers</h2>
-                <a href="https://github.com/ta-chen" class="github-avatar"><img
-                        src="https://github.com/ta-chen.png"><span>Ta Chen</span></a>
-                <a href="https://github.com/zahirpl" class="github-avatar"><img
-                        src="https://github.com/zahirpl.png"><span>Zahir Patni</span></a>
-            </div>
-            <div class="subsection">
-                <h2>Current Committers</h2>
+                <h2>Committers</h2>
                 <a href="https://github.com/ta-chen" class="github-avatar"><img
                         src="https://github.com/ta-chen.png"><span>Ta Chen</span></a>
                 <a href="https://github.com/zahirpl" class="github-avatar"><img
                         src="https://github.com/zahirpl.png"><span>Zahir Patni</span></a>
                 <a href="https://github.com/benjaminflin" class="github-avatar"><img
                         src="https://github.com/benjaminflin.png"><span>Benjamin Flin</span></a>
+                <a href="https://github.com/dshur389" class="github-avatar"><img
+                        src="https://github.com/dshur389.png"><span>David Shur</span></a>
+                <a href="https://github.com/yowjian" class="github-avatar"><img
+                        src="https://github.com/yowjian.png"><span>Yow-Jian Lin</span></a>
+                <a href="https://github.com/gdcatgithub" class="github-avatar"><img
+                        src="https://github.com/gdcatgithub.png"><span>Giovanni Di Crescenzo</span></a>
+                <a href="https://github.com/rajesh-krishnan" class="github-avatar"><img
+                        src="https://github.com/rajesh-krishnan.png"><span>Rajesh Krishnan</span></a>
+
             </div>
-        </section>
-        <section>
-            <h1>Contributing</h1>
-            <hr>
-            <ul class="subsection">
-                <li><a href="">Contributing guidelines</a></li>
-                <li><a href="">Coding style guidelines</a></li>
-                <li><a href="">Submitting pull requests</a></li>
-            </ul>
             <div class="subsection">
-                <h2>Forum</h2>
-                <p>
-                    All discussions pertaining to the SEDIMENT-lfproject are mediated through <a
-                        href="https://github.com/sediment-lfproject/remote-attestation" class="link">github issues</a></p>
+                <h2>Maintainers</h2>
+                <a href="https://github.com/ta-chen" class="github-avatar"><img
+                        src="https://github.com/ta-chen.png"><span>Ta Chen</span></a>
+                <a href="https://github.com/zahirpl" class="github-avatar"><img
+                        src="https://github.com/zahirpl.png"><span>Zahir Patni</span></a>
             </div>
         </section>
     </main>

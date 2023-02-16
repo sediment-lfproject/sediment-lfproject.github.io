@@ -95,6 +95,14 @@ header a {
     border-radius: 999px;
 }
 
+.main {
+    padding: 2rem;
+    max-width: 50rem;
+    margin-inline: auto;
+}
+ul {
+    margin-left: 1rem;
+}
 .overview {
     max-width: 1000px;
     display: flex;
@@ -170,6 +178,14 @@ a:hover {
     font-size: 9pt;
     padding: 0.5rem;
 }
+.community-main ul li {
+    font-size: 9pt;
+    margin-inline: 1.5rem;
+}
+.community-main span {
+    font-size: 9pt;
+}
+
 
 .link {
     color: var(--link-color);
