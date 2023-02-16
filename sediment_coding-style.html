@@ -180,14 +180,14 @@ body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redevi
 <p>Local variable names should be short, and to the point. If you have some random integer loop counter, it should probably be called <code>i</code> or <code>j</code>.</p>
 <p>Avoid single-letter names when they can be visually confusing, such as <code>I</code> and <code>O</code>. Avoid other single-letter names unless they are telling in the given context. For instance, <code>m</code> for modulus and <code>s</code> for SSL pointers are fine.</p>
 <p>Use simple variable names like <code>tmp</code> and <code>name</code> as long as they are non-ambiguous in the given context.</p>
-<p>If you are afraid that someone might mix up your local variable names, perhaps the function is too long; see the <a href="https://www.opensslX.org/policies/technical/coding-style.html#chapter-6-functions">chapter on functions</a>.</p>
+<p>If you are afraid that someone might mix up your local variable names, perhaps the function is too long; see the <a href="https://www.opensslX.org/policies/technical/coding-style.html#chapter-5-functions">chapter on functions</a>.</p>
 <p>Global variables (to be used only if you REALLY need them) need to have descriptive names, as do global functions. If you have a function that counts the number of active users, you should call that <em>count_active_users()</em> or similar, you should NOT call it <em>cntusr()</em>.</p>
 
 <p>Do not encode the type into a name (so-called Hungarian notation, e.g., <code>int iAge</code>).</p>
 <p>Align names to terms and wording used in standards and RFCs.</p>
 <p>Make sure that names do not contain spelling errors.</p>
 
-<h3 id="chapter-6-functions">Chapter 6: Functions</h3>
+<h3 id="chapter-5-functions">Chapter 5: Functions</h3>
 <p>Ideally, functions should be short and sweet, and do just one thing. A rule of thumb is that they should fit on one or two screenfuls of text (25 lines as we all know), and do one thing and do that well.</p>
 <p>The maximum length of a function is often inversely proportional to the complexity and indentation level of that function. So, if you have a conceptually simple function that is just one long (but simple) switch statement, where you have to do lots of small things for a lot of different cases, it’s okay to have a longer function.</p>
 <p>If you have a complex function, however, consider using helper functions with descriptive names. You can ask the compiler to in-line them if you think it’s performance-critical, and it will probably do a better job of it than you would have done.</p>
@@ -196,15 +196,15 @@ body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redevi
 <p>In function prototypes, include parameter names with their data types. Although this is not required by the C language, it is preferred in SEDIMENT because it is a simple way to add valuable information for the reader. The name in the prototype declaration should match the name in the function definition.</p>
 <p>Separate local variable declarations and subsequent statements by an empty line.</p>
 <p>Do not mix local variable declarations and statements.</p>
-<h4 id="chapter-6.1-checking-function-arguments">Chapter 6.1: Checking function arguments</h4>
+<h4 id="chapter-5.1-checking-function-arguments">Chapter 5.1: Checking function arguments</h4>
 <p>A <em>public</em> function should verify that its arguments are sensible. This includes, but is not limited to, verifying that: - non-optional pointer arguments are not NULL and - numeric arguments are within expected ranges.</p>
 <p>Where an argument is not sensible, an error should be returned.</p>
-<h4 id="chapter-6.2-extending-existing-functions">Chapter 6.2: Extending existing functions</h4>
+<h4 id="chapter-5.2-extending-existing-functions">Chapter 5.2: Extending existing functions</h4>
 <p>From time to time it is necessary to extend an existing function. Typically this will mean adding additional arguments, but it may also include removal of some.</p>
 <p>Where an extended function should be added the original function should be kept and a new version created with the same name and an <code>_ex</code> suffix. For example, the <code>RAND_bytes</code> function has an extended form called <code>RAND_bytes_ex</code>.</p>
 <p>Where an extended version of a function already exists and a second extended version needs to be created then it should have an <code>_ex2</code> suffix, and so on for further extensions.</p>
 <p>When an extended version of a function is created the order of existing parameters from the original function should be retained. However new parameters may be inserted at any point (they do not have to be at the end), and no longer required parameters may be removed.</p>
-<h3 id="chapter-7-centralized-exiting-of-functions">Chapter 7: Centralized exiting of functions</h3>
+<h3 id="chapter-6-centralized-exiting-of-functions">Chapter 6: Centralized exiting of functions</h3>
 <p>The goto statement comes in handy when a function exits from multiple locations and some common work such as cleanup has to be done. If there is no cleanup needed then just return directly. The rationale for this is as follows:</p>
 <ul>
 <li>Unconditional statements are easier to understand and follow</li>
@@ -234,7 +234,7 @@ body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redevi
 <span id="cb22-19"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-19" aria-hidden="true"></a>        <span class="cf">return</span> result;</span>
 <span id="cb22-20"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-20" aria-hidden="true"></a>    }</span></code></pre></div>
 
-<h3 id="chapter-8-commenting">Chapter 8: Commenting</h3>
+<h3 id="chapter-7-commenting">Chapter 7: Commenting</h3>
 <p>Place comments above or to the right of the code they refer to. Comments referring to the code line after should be indented equally to that code line.</p>
 <p>Comments are good, but there is also a danger of over-commenting. NEVER try to explain HOW your code works in a comment. It is much better to write the code so that it is obvious, and it’s a waste of time to explain badly written code. You want your comments to tell WHAT your code does, not HOW.</p>
 <p>The preferred style for long (multi-line) comments is:</p>
@@ -247,7 +247,7 @@ body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redevi
 <span id="cb23-7"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb23-7" aria-hidden="true"></a><span class="co">     * with beginning and ending almost-blank lines.</span></span>
 <span id="cb23-8"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb23-8" aria-hidden="true"></a><span class="co">     */</span></span></code></pre></div>
 <p>It’s also important to comment data, whether they are basic types or derived types. To this end, use just one data declaration per line (no commas for multiple data declarations). This leaves you room for a small comment on each item, explaining its use.</p>
-<h3 id="chapter-9-macros-and-enums">Chapter 9: Macros and Enums</h3>
+<h3 id="chapter-8-macros-and-enums">Chapter 8: Macros and Enums</h3>
 <p>Names of macros defining constants and labels in enums are in uppercase:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb24-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb24-1" aria-hidden="true"></a>    <span class="pp">#define CONSTANT 0x12345</span></span></code></pre></div>
 <p>Enums are preferred when defining several related constants. Note, however, that enum arguments to public functions are not permitted.</p>
@@ -277,7 +277,7 @@ body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redevi
 <p>Beware of similar issues with macros using parameters. Put parentheses around uses of macro arguments unless they are passed on as-is to a further macro or function. For example,</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb30-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb30-1" aria-hidden="true"></a><span class="pp">#define MACRO(a,b) ((a) * func(a, b))</span></span></code></pre></div>
 <p>The <a href="https://gcc.gnu.org/onlinedocs/" title="GCC online documentation">GNU cpp manual</a> deals with macros exhaustively.</p>
-<h3 id="chapter-12-editor-modelines">Chapter 12: Editor modelines</h3>
+<h3 id="chapter-9-editor-modelines">Chapter 9: Editor modelines</h3>
 <p>Some editors can interpret configuration information embedded in source files, indicated with special markers. For example, emacs interprets lines marked like this:</p>
 <p>-<em>- mode: c -</em>-</p>
 <p>Or like this:</p>
@@ -289,7 +289,7 @@ body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redevi
 <p>Vim interprets markers that look like this:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb32-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb32-1" aria-hidden="true"></a>    <span class="co">/* vim:set sw=8 noet */</span></span></code></pre></div>
 <p>Do not include any of these in source files. People have their own personal editor configurations, and your source files should not override them. This includes markers for indentation and mode configuration. People may use their own custom mode, or may have some other magic method for making indentation work correctly.</p>
-<h3 id="chapter-15-expressions">Chapter 15: Expressions</h3>
+<h3 id="chapter-10-expressions">Chapter 10: Expressions</h3>
 <p>Avoid needless parentheses as far as reasonable. For example, do not write</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb34-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb34-1" aria-hidden="true"></a>    <span class="cf">if</span> ((p == NULL) &amp;&amp; (!f(((<span class="dv">2</span> * x) + y) == (z++))))</span></code></pre></div>
 <p>but</p>
@@ -298,7 +298,7 @@ body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redevi
 <div class="sourceCode" id="cb36"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb36-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb36-1" aria-hidden="true"></a>    <span class="cf">if</span> ((a &amp;&amp; b) || c)</span>
 <span id="cb36-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb36-2" aria-hidden="true"></a>    <span class="cf">if</span> ((a &lt;= b) == ((c &gt;= d) != (e &lt; f)))</span>
 <span id="cb36-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb36-3" aria-hidden="true"></a>    x = (a &amp; b) ^ (c | d)</span></code></pre></div>
-<p>Regarding parentheses in macro definitions see the <a href="https://www.opensslX.org/policies/technical/coding-style.html#chapter-9-macros-and-enums">chapter on macros</a>.</p>
+<p>Regarding parentheses in macro definitions see the <a href="https://www.opensslX.org/policies/technical/coding-style.html#chapter-11-macros-and-enums">chapter on macros</a>.</p>
 <p>In comparisons with constants (including <code>NULL</code> and other constant macros) place the constant on the right-hand side of the comparison operator. For example,</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb37-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb37-1" aria-hidden="true"></a>    <span class="cf">while</span> (i++ &lt; <span class="dv">10</span> &amp;&amp; p != NULL)</span></code></pre></div>
 <p>Do not use implicit checks for numbers (not) being <code>0</code> or pointers (not) being <code>NULL</code>. For example, do not write</p>
@@ -332,7 +332,7 @@ body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redevi
 <span id="cb44-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb44-3" aria-hidden="true"></a>        statement_1;</span>
 <span id="cb44-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb44-4" aria-hidden="true"></a>        statement_2;</span>
 <span id="cb44-5"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb44-5" aria-hidden="true"></a>    }</span></code></pre></div>
-<h3 id="chapter-16-references">Chapter 16: References</h3>
+<h3 id="chapter-11-references">Chapter 11: References</h3>
 <p><a href="http://cm.bell-labs.com/cm/cs/cbook" title="The C Programming Language, Second Edition">The C Programming Language</a>, Second Edition by Brian W. Kernighan and Dennis M. Ritchie. Prentice Hall, Inc., 1988. ISBN 0-13-110362-8 (paperback), 0-13-110370-9 (hardback).</p>
 <p><a href="http://cm.bell-labs.com/cm/cs/tpop/" title="The Practice of Programming">The Practice of Programming</a> by Brian W. Kernighan and Rob Pike. Addison-Wesley, Inc., 1999. ISBN 0-201-61586-X.</p>
 <p><a href="https://www.gnu.org/manual/" title="GNU manuals">GNU manuals</a> - we’re in compliance with K&amp;R and this text - for cpp, gcc, gcc internals and indent.</p>
