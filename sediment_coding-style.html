@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)https://www.opensslX.org/policies/technical/coding-style.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" class="js video maskImage placeholder" data-redeviation-bs-uid="108304"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+  <meta name="author" content="SEDIMENT.">
+  <title>/policies/technical/coding-style.html</title>
+  <style>
+      </style>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+
+<link rel="canonical" href="https://www.opensslX.org/">
+<link rel="icon" href="https://www.opensslX.org/favicon.ico">
+<link rel="stylesheet" type="text/css" href="./sediment_coding-style_files/screen.css" media="screen, projection">
+
+<script src="./sediment_coding-style_files/modernizr-2.0.js.download"></script>
+<script src="./sediment_coding-style_files/jquery-3.5.1.min.js.download"></script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="./inc/libs/jquery-3.5.1.min.js"%3E%3C/script%3E'))</script>
+<script type="text/javascript" src="./sediment_coding-style_files/octopress.js.download"></script>
+
+<link rel="stylesheet" type="text/css" href="./sediment_coding-style_files/css">
+<link rel="stylesheet" type="text/css" href="./sediment_coding-style_files/css(1)">
+
+<!--[if lt IE 9]>
+    <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<style type="text/css">
+ .state {
+     position: fixed;
+     color: rgba(0,0,0,0.025);
+     font-family: sans-serif;
+     font-size: 25vh;
+     transform-origin: right top;
+     transform: rotate(-45deg);
+     z-index: 100;
+ }
+</style>
+
+<style class="redeviation-bs-style" data-name="content">/*! (c) Philipp König under GPL-3.0 */
+body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redeviation-bs-sidebar.redeviation-bs-visible,body>#redeviation-bs-overlay.redeviation-bs-visible{opacity:1;pointer-events:auto}body.redeviation-bs-noscroll{overflow:hidden !important}body>div#redeviation-bs-indicator>div{position:absolute;transform:translate3d(-24px, 0, 0);top:0;left:0;width:24px !important;height:100%;background:rgba(0,0,0,0.5);border-radius:0 10px 10px 0;transition:opacity 0.3s, transform 0.3s;z-index:2}body>div#redeviation-bs-indicator>div>span{-webkit-mask:no-repeat center/24px;-webkit-mask-image:url(chrome-extension://jdbnofccmhefkmjbkkdkfiicjkgofkdh/img/icon-bookmark.svg);background-color:#ffffff;position:absolute;display:block;top:0;left:0;width:100%;height:100%}body>div#redeviation-bs-indicator[data-pos='right']{left:auto;right:0}body>div#redeviation-bs-indicator[data-pos='right']>div{transform:translate3d(24px, 0, 0);left:auto;right:0;border-radius:10px 0 0 10px}body>div#redeviation-bs-indicator.redeviation-bs-fullHeight>div{border-radius:0}body>div#redeviation-bs-indicator.redeviation-bs-hover>div{transform:translate3d(0, 0, 0);opacity:1}body>div#redeviation-bs-indicator[data-pos='left'].redeviation-bs-has-lsb{height:100% !important;top:0 !important}body>div#redeviation-bs-indicator[data-pos='left'].redeviation-bs-has-lsb>div{background:transparent}body>div#redeviation-bs-indicator[data-pos='left'].redeviation-bs-has-lsb>div>span{-webkit-mask-position-y:20px}body>#redeviation-bs-sidebar{width:350px;max-width:none;height:0;z-index:2147483646;background-color:rgba(255,255,255,0.8) !important;color-scheme:normal !important;speak:none;border:none;display:block !important;transform:translate3d(-350px, 0, 0);transition:width 0s 0.3s, height 0s 0.3s, opacity 0.3s, transform 0.3s}body>#redeviation-bs-sidebar[data-pos='right']{left:auto;right:0;transform:translate3d(350px, 0, 0)}body>#redeviation-bs-sidebar.redeviation-bs-visible{width:calc(100% + 350px);height:100%;transform:translate3d(0, 0, 0);transition:opacity 0.3s, transform 0.3s}body>#redeviation-bs-sidebar.redeviation-bs-hideMask{background:none !important}body>#redeviation-bs-sidebar.redeviation-bs-hideMask:not(.redeviation-bs-hover){width:calc(350px + 50px)}body>#redeviation-bs-overlay{width:100%;max-width:none;height:100%;z-index:2147483647;border:none;speak:none;background:rgba(0,0,0,0.5) !important;transition:opacity 0.3s}
+</style></head>
+<body>
+<header role="banner">
+    <hgroup>
+        <h1>
+            <a href="https://www.opensslX.org/">
+                <span id="header-open-text"></span><span id="header-ssl-text">SEDIMENT</span>
+            </a>
+        </h1>
+        <h2><b>SE</b>cure <b>DI</b>stributed IoT <b>M</b>anagem<b>ENT</b> for 5G</h2>
+        <h3>A Linux Foundation project for secure distributed IoT systems</h3>
+    </hgroup>
+</header>
+
+<div id="main">
+    <div id="content">
+        <div class="blog-index">
+            <article>
+
+<h2 id="sediment-coding-style">SEDIMENT coding style</h2>
+<p>This document describes the coding style for the SEDIMENT project. It is derived from the <a href="https://www.openssl.org/policies/technical/coding-style.html" title="OpenSSL Coding Style">OpenSSL coding style</a>.</p>
+<p>This guide is not distributed as part of SEDIMENT itself. 
+<p>Coding style is all about readability and maintainability using commonly available tools. </p>
+<h3 id="chapter-1-indentation">Chapter 1: Indentation</h3>
+<p>Indentation is four space characters. Do not use the tab character.</p>
+<p>Pre-processor directives does not use indentations:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb1-1" aria-hidden="true"></a>    <span class="er">#if</span></span>
+<span id="cb1-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb1-2" aria-hidden="true"></a>    <span class="pp">#define</span></span>
+<span id="cb1-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb1-3" aria-hidden="true"></a>    <span class="pp">#else</span></span>
+<span id="cb1-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb1-4" aria-hidden="true"></a>    <span class="pp">#define</span></span>
+<span id="cb1-5"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb1-5" aria-hidden="true"></a>    <span class="pp">#endif</span></span></code></pre></div>
+<h3 id="chapter-2-breaking-long-lines-and-strings">Chapter 2: Breaking long lines and strings</h3>
+<p>Don’t put multiple statements, or assignments, on a single line.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb2-1" aria-hidden="true"></a>    <span class="cf">if</span> (condition) do_this();</span>
+<span id="cb2-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb2-2" aria-hidden="true"></a>    do_something_everytime();</span></code></pre></div>
+<p>The limit on the length of lines is <em>120</em> columns. Statements longer than <em>120</em> columns must be broken into sensible chunks, unless exceeding <em>120</em> columns significantly increases readability and does not hide information. Descendants are always substantially shorter than the parent and are placed substantially to the right. The same applies to function headers with a long argument list. Never break user-visible strings, however, because that breaks the ability to grep for them.</p>
+<h3 id="chapter-3-placing-braces-and-spaces">Chapter 3: Placing Braces and Spaces</h3>
+<p>The other issue that always comes up in C styling is the placement of braces. Unlike the indent size, there are few technical reasons to choose one placement strategy over the other, but the preferred way, following Kernighan and Ritchie, is to put the opening brace last on the line, and the closing brace first:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb3-1" aria-hidden="true"></a>    <span class="cf">if</span> (x is true) {</span>
+<span id="cb3-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb3-2" aria-hidden="true"></a>        we <span class="cf">do</span> y</span>
+<span id="cb3-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb3-3" aria-hidden="true"></a>    }</span></code></pre></div>
+<p>This applies to all non-function statement blocks (<code>if</code>, <code>switch</code>, <code>for</code>, <code>while</code>, <code>do</code>):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-1" aria-hidden="true"></a>    <span class="cf">switch</span> (suffix) {</span>
+<span id="cb4-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-2" aria-hidden="true"></a>    <span class="cf">case</span> <span class="ch">'G'</span>:</span>
+<span id="cb4-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-3" aria-hidden="true"></a>    <span class="cf">case</span> <span class="ch">'g'</span>:</span>
+<span id="cb4-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-4" aria-hidden="true"></a>        mem &lt;&lt;= <span class="dv">30</span>;</span>
+<span id="cb4-5"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-5" aria-hidden="true"></a>        <span class="cf">break</span>;</span>
+<span id="cb4-6"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-6" aria-hidden="true"></a>    <span class="cf">case</span> <span class="ch">'M'</span>:</span>
+<span id="cb4-7"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-7" aria-hidden="true"></a>    <span class="cf">case</span> <span class="ch">'m'</span>:</span>
+<span id="cb4-8"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-8" aria-hidden="true"></a>        mem &lt;&lt;= <span class="dv">20</span>;</span>
+<span id="cb4-9"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-9" aria-hidden="true"></a>        <span class="cf">break</span>;</span>
+<span id="cb4-10"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-10" aria-hidden="true"></a>    <span class="cf">case</span> <span class="ch">'K'</span>:</span>
+<span id="cb4-11"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-11" aria-hidden="true"></a>    <span class="cf">case</span> <span class="ch">'k'</span>:</span>
+<span id="cb4-12"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-12" aria-hidden="true"></a>        mem &lt;&lt;= <span class="dv">10</span>;</span>
+<span id="cb4-13"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-13" aria-hidden="true"></a>        <span class="co">/* fall through */</span></span>
+<span id="cb4-14"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-14" aria-hidden="true"></a>    <span class="cf">default</span>:</span>
+<span id="cb4-15"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-15" aria-hidden="true"></a>        <span class="cf">break</span>;</span>
+<span id="cb4-16"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb4-16" aria-hidden="true"></a>    }</span></code></pre></div>
+<p>Note, from the above example, that the way to indent a switch statement is to align the switch and its subordinate case labels in the same column instead of <em>double-indenting</em> the case bodies.</p>
+<p>There is one special case, however. Functions have the opening brace at the beginning of the next line:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb5-1" aria-hidden="true"></a>    <span class="dt">int</span> function(<span class="dt">int</span> x)</span>
+<span id="cb5-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb5-2" aria-hidden="true"></a>    {</span>
+<span id="cb5-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb5-3" aria-hidden="true"></a>        body of function</span>
+<span id="cb5-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb5-4" aria-hidden="true"></a>    }</span></code></pre></div>
+<p>Note that the closing brace is empty on a line of its own, <strong>except</strong> in the cases where it is followed by a continuation of the same statement, such as a <code>while</code> in a do-statement, like this:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb6-1" aria-hidden="true"></a>    <span class="cf">do</span> {</span>
+<span id="cb6-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb6-2" aria-hidden="true"></a>        ...</span>
+<span id="cb6-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb6-3" aria-hidden="true"></a>    } <span class="cf">while</span> (condition);</span></code></pre></div>
+<p>An <code>else</code> in an if-statement should start on a new line.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb7-1" aria-hidden="true"></a>    <span class="cf">if</span> (x == y) {</span>
+<span id="cb7-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb7-2" aria-hidden="true"></a>        ...</span>
+<span id="cb7-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb7-3" aria-hidden="true"></a>    }
+<span id="cb7-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb7-3" aria-hidden="true"></a>    else</span> <span class="cf">if</span> (x &gt; y) {
+<span id="cb7-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb7-4" aria-hidden="true"></a>        ...</span>
+<span id="cb7-5"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb7-5" aria-hidden="true"></a>    } 
+<span id="cb7-5"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb7-5" aria-hidden="true"></a>    else {
+<span id="cb7-6"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb7-6" aria-hidden="true"></a>        ...</span>
+<span id="cb7-7"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb7-7" aria-hidden="true"></a>    }</span></code></pre></div>
+<p>Do not unnecessarily use braces around a single statement:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb8-1" aria-hidden="true"></a>    <span class="cf">if</span> (condition)</span>
+<span id="cb8-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb8-2" aria-hidden="true"></a>        action();</span></code></pre></div>
+<p>and</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb9-1" aria-hidden="true"></a>    <span class="cf">if</span> (condition)</span>
+<span id="cb9-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb9-2" aria-hidden="true"></a>        do_this();</span>
+<span id="cb9-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb9-3" aria-hidden="true"></a>    <span class="cf">else</span></span>
+<span id="cb9-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb9-4" aria-hidden="true"></a>        do_that();</span></code></pre></div>
+<p>If one of the branches is a compound statement, then use braces on both parts:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb10-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb10-1" aria-hidden="true"></a>    <span class="cf">if</span> (condition) {</span>
+<span id="cb10-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb10-2" aria-hidden="true"></a>        do_this();</span>
+<span id="cb10-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb10-3" aria-hidden="true"></a>        do_that();</span>
+<span id="cb10-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb10-4" aria-hidden="true"></a>    } 
+<span id="cb10-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb10-4" aria-hidden="true"></a>    else {
+<span id="cb10-5"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb10-5" aria-hidden="true"></a>        otherwise();</span>
+<span id="cb10-6"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb10-6" aria-hidden="true"></a>    }</span></code></pre></div>
+<p>Nested compound statements should often have braces for clarity, particularly to avoid the dangling-else problem:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb11-1" aria-hidden="true"></a>    <span class="cf">if</span> (condition) {</span>
+<span id="cb11-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb11-2" aria-hidden="true"></a>        do_this();</span>
+<span id="cb11-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb11-3" aria-hidden="true"></a>        <span class="cf">if</span> (anothertest)</span>
+<span id="cb11-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb11-4" aria-hidden="true"></a>            do_that();</span>
+<span id="cb11-5"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb11-5" aria-hidden="true"></a>    } </span>
+<span id="cb11-5"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb11-5" aria-hidden="true"></a>    else {
+<span id="cb11-6"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb11-6" aria-hidden="true"></a>        otherwise();</span>
+<span id="cb11-7"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb11-7" aria-hidden="true"></a>    }</span></code></pre></div>
+<h4 id="chapter-3.1-spaces">Chapter 3.1: Spaces</h4>
+<p>SEDIMENT style for use of spaces depends (mostly) on whether the name is a function or keyword. Use a space after most keywords:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb12-1" aria-hidden="true"></a>    <span class="cf">if</span>, <span class="cf">switch</span>, <span class="cf">case</span>, <span class="cf">for</span>, <span class="cf">do</span>, <span class="cf">while</span>, <span class="cf">return</span></span></code></pre></div>
+<p>Do not use a space after <code>sizeof</code>, <code>typeof</code>, <code>alignof</code>, or <code>__attribute__</code>. They look somewhat like functions and should have parentheses in SEDIMENT, although they are not required by the language. For <code>sizeof</code>, use a variable when at all possible, to ensure that type changes are properly reflected:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb13-1" aria-hidden="true"></a>    SOMETYPE *p = malloc(<span class="kw">sizeof</span>(*p) * num_of_elements);</span></code></pre></div>
+<p>Do not add spaces around the inside of parenthesized expressions. This example is wrong:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb14-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb14-1" aria-hidden="true"></a>    s = <span class="kw">sizeof</span>( <span class="kw">struct</span> file );</span></code></pre></div>
+<p>When declaring pointer data or a function that returns a pointer type, the asterisk goes next to the data or function name, and not the type:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb15-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb15-1" aria-hidden="true"></a>    <span class="dt">char</span> *openssl_banner;</span>
+<span id="cb15-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb15-2" aria-hidden="true"></a>    <span class="dt">unsigned</span> <span class="dt">long</span> <span class="dt">long</span> memparse(<span class="dt">char</span> *ptr, <span class="dt">char</span> **retptr);</span>
+<span id="cb15-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb15-3" aria-hidden="true"></a>    <span class="dt">char</span> *match_strdup(substring_t *s);</span></code></pre></div>
+<p>Use one space on either side of binary and ternary operators, such as this partial list:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb16-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb16-1" aria-hidden="true"></a>    =  +  -  &lt;  &gt;  *  /  %  |  &amp;  ^  &lt;=  &gt;=  ==  !=  ?  : +=</span></code></pre></div>
+<p>Put a space after commas and after semicolons in <code>for</code> statements, but not in <code>for (;;)</code>.</p>
+<p>Do not put a space after unary operators:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb17-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb17-1" aria-hidden="true"></a>    &amp;  *  +  -  ~  !  defined</span></code></pre></div>
+<p>Do not put a space before the postfix increment and decrement unary operators or after the prefix increment and decrement unary operators:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb18-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb18-1" aria-hidden="true"></a>    foo++</span>
+<span id="cb18-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb18-2" aria-hidden="true"></a>    --bar</span></code></pre></div>
+<p>Do not put a space around the <code>.</code> and <code>-&gt;</code> structure member operators:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb19-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb19-1" aria-hidden="true"></a>    foo.bar</span>
+<span id="cb19-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb19-2" aria-hidden="true"></a>    foo-&gt;bar</span></code></pre></div>
+<p>Do not use multiple consecutive spaces except in comments, for indentation, and for multi-line alignment of definitions, e.g.:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb20-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb20-1" aria-hidden="true"></a><span class="pp">#define FOO_INVALID  -1   </span><span class="co">/* invalid or inconsistent arguments */</span></span>
+<span id="cb20-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb20-2" aria-hidden="true"></a><span class="pp">#define FOO_INTERNAL 0    </span><span class="co">/* Internal error, most likely malloc */</span></span>
+<span id="cb20-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb20-3" aria-hidden="true"></a><span class="pp">#define FOO_OK       1    </span><span class="co">/* success */</span></span>
+<span id="cb20-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb20-4" aria-hidden="true"></a><span class="pp">#define FOO_GREAT    100  </span><span class="co">/* some specific outcome */</span></span></code></pre></div>
+<p>Do not leave trailing whitespace at the ends of lines. Some editors with <em>smart</em> indentation will insert whitespace at the beginning of new lines as appropriate, so you can start typing the next line of code right away. But they may not remove that whitespace if you leave a blank line, however, and you end up with lines containing trailing, or nothing but, whitespace.</p>
+<p>Git will warn you about patches that introduce trailing whitespace, and can optionally strip the trailing whitespace; however, if applying a series of patches, this may make later patches in the series fail by changing their context lines.</p>
+<p>Avoid empty lines at the beginning or at the end of a file.</p>
+<p>Avoid multiple empty lines in a row.</p>
+<h3 id="chapter-4-naming">Chapter 4: Naming</h3>
+<p>Local variable names should be short, and to the point. If you have some random integer loop counter, it should probably be called <code>i</code> or <code>j</code>.</p>
+<p>Avoid single-letter names when they can be visually confusing, such as <code>I</code> and <code>O</code>. Avoid other single-letter names unless they are telling in the given context. For instance, <code>m</code> for modulus and <code>s</code> for SSL pointers are fine.</p>
+<p>Use simple variable names like <code>tmp</code> and <code>name</code> as long as they are non-ambiguous in the given context.</p>
+<p>If you are afraid that someone might mix up your local variable names, perhaps the function is too long; see the <a href="https://www.opensslX.org/policies/technical/coding-style.html#chapter-6-functions">chapter on functions</a>.</p>
+<p>Global variables (to be used only if you REALLY need them) need to have descriptive names, as do global functions. If you have a function that counts the number of active users, you should call that <em>count_active_users()</em> or similar, you should NOT call it <em>cntusr()</em>.</p>
+
+<p>Do not encode the type into a name (so-called Hungarian notation, e.g., <code>int iAge</code>).</p>
+<p>Align names to terms and wording used in standards and RFCs.</p>
+<p>Make sure that names do not contain spelling errors.</p>
+
+<h3 id="chapter-6-functions">Chapter 6: Functions</h3>
+<p>Ideally, functions should be short and sweet, and do just one thing. A rule of thumb is that they should fit on one or two screenfuls of text (25 lines as we all know), and do one thing and do that well.</p>
+<p>The maximum length of a function is often inversely proportional to the complexity and indentation level of that function. So, if you have a conceptually simple function that is just one long (but simple) switch statement, where you have to do lots of small things for a lot of different cases, it’s okay to have a longer function.</p>
+<p>If you have a complex function, however, consider using helper functions with descriptive names. You can ask the compiler to in-line them if you think it’s performance-critical, and it will probably do a better job of it than you would have done.</p>
+<p>Another measure of complexity is the number of local variables. If there are more than five to 10, consider splitting it into smaller pieces. A human brain can generally easily keep track of about seven different things; anything more and it gets confused. Often things which are simple and clear now are much less obvious two weeks from now, or to someone else. An exception to this is the command-line applications which support many options.</p>
+<p>In source files, separate functions with one blank line.</p>
+<p>In function prototypes, include parameter names with their data types. Although this is not required by the C language, it is preferred in SEDIMENT because it is a simple way to add valuable information for the reader. The name in the prototype declaration should match the name in the function definition.</p>
+<p>Separate local variable declarations and subsequent statements by an empty line.</p>
+<p>Do not mix local variable declarations and statements.</p>
+<h4 id="chapter-6.1-checking-function-arguments">Chapter 6.1: Checking function arguments</h4>
+<p>A <em>public</em> function should verify that its arguments are sensible. This includes, but is not limited to, verifying that: - non-optional pointer arguments are not NULL and - numeric arguments are within expected ranges.</p>
+<p>Where an argument is not sensible, an error should be returned.</p>
+<h4 id="chapter-6.2-extending-existing-functions">Chapter 6.2: Extending existing functions</h4>
+<p>From time to time it is necessary to extend an existing function. Typically this will mean adding additional arguments, but it may also include removal of some.</p>
+<p>Where an extended function should be added the original function should be kept and a new version created with the same name and an <code>_ex</code> suffix. For example, the <code>RAND_bytes</code> function has an extended form called <code>RAND_bytes_ex</code>.</p>
+<p>Where an extended version of a function already exists and a second extended version needs to be created then it should have an <code>_ex2</code> suffix, and so on for further extensions.</p>
+<p>When an extended version of a function is created the order of existing parameters from the original function should be retained. However new parameters may be inserted at any point (they do not have to be at the end), and no longer required parameters may be removed.</p>
+<h3 id="chapter-7-centralized-exiting-of-functions">Chapter 7: Centralized exiting of functions</h3>
+<p>The goto statement comes in handy when a function exits from multiple locations and some common work such as cleanup has to be done. If there is no cleanup needed then just return directly. The rationale for this is as follows:</p>
+<ul>
+<li>Unconditional statements are easier to understand and follow</li>
+<li>It can reduce excessive control structures and nesting</li>
+<li>It avoids errors caused by failing to updated multiple exit points when the code is modified</li>
+<li>It saves the compiler work to optimize redundant code away ;)</li>
+</ul>
+<p>For example:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb22-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-1" aria-hidden="true"></a>    <span class="dt">int</span> fun(<span class="dt">int</span> a)</span>
+<span id="cb22-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-2" aria-hidden="true"></a>    {</span>
+<span id="cb22-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-3" aria-hidden="true"></a>        <span class="dt">int</span> result = <span class="dv">0</span>;</span>
+<span id="cb22-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-4" aria-hidden="true"></a>        <span class="dt">char</span> *buffer = OPENSSL_malloc(SIZE);</span>
+<span id="cb22-5"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-5" aria-hidden="true"></a></span>
+<span id="cb22-6"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-6" aria-hidden="true"></a>        <span class="cf">if</span> (buffer == NULL)</span>
+<span id="cb22-7"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-7" aria-hidden="true"></a>            <span class="cf">return</span> -<span class="dv">1</span>;</span>
+<span id="cb22-8"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-8" aria-hidden="true"></a></span>
+<span id="cb22-9"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-9" aria-hidden="true"></a>        <span class="cf">if</span> (condition1) {</span>
+<span id="cb22-10"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-10" aria-hidden="true"></a>            <span class="cf">while</span> (loop1) {</span>
+<span id="cb22-11"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-11" aria-hidden="true"></a>                ...</span>
+<span id="cb22-12"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-12" aria-hidden="true"></a>            }</span>
+<span id="cb22-13"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-13" aria-hidden="true"></a>            result = <span class="dv">1</span>;</span>
+<span id="cb22-14"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-14" aria-hidden="true"></a>            <span class="cf">goto</span> out;</span>
+<span id="cb22-15"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-15" aria-hidden="true"></a>        }</span>
+<span id="cb22-16"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-16" aria-hidden="true"></a>        ...</span>
+<span id="cb22-17"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-17" aria-hidden="true"></a>    out:</span>
+<span id="cb22-18"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-18" aria-hidden="true"></a>        OPENSSL_free(buffer);</span>
+<span id="cb22-19"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-19" aria-hidden="true"></a>        <span class="cf">return</span> result;</span>
+<span id="cb22-20"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb22-20" aria-hidden="true"></a>    }</span></code></pre></div>
+
+<h3 id="chapter-8-commenting">Chapter 8: Commenting</h3>
+<p>Place comments above or to the right of the code they refer to. Comments referring to the code line after should be indented equally to that code line.</p>
+<p>Comments are good, but there is also a danger of over-commenting. NEVER try to explain HOW your code works in a comment. It is much better to write the code so that it is obvious, and it’s a waste of time to explain badly written code. You want your comments to tell WHAT your code does, not HOW.</p>
+<p>The preferred style for long (multi-line) comments is:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb23-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb23-1" aria-hidden="true"></a>    <span class="co">/*</span></span>
+<span id="cb23-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb23-2" aria-hidden="true"></a><span class="co">     * This is the preferred style for multi-line</span></span>
+<span id="cb23-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb23-3" aria-hidden="true"></a><span class="co">     * comments in the SEDIMENT source code.</span></span>
+<span id="cb23-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb23-4" aria-hidden="true"></a><span class="co">     * Please use it consistently.</span></span>
+<span id="cb23-5"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb23-5" aria-hidden="true"></a><span class="co">     *</span></span>
+<span id="cb23-6"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb23-6" aria-hidden="true"></a><span class="co">     * Description:  A column of asterisks on the left side,</span></span>
+<span id="cb23-7"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb23-7" aria-hidden="true"></a><span class="co">     * with beginning and ending almost-blank lines.</span></span>
+<span id="cb23-8"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb23-8" aria-hidden="true"></a><span class="co">     */</span></span></code></pre></div>
+<p>It’s also important to comment data, whether they are basic types or derived types. To this end, use just one data declaration per line (no commas for multiple data declarations). This leaves you room for a small comment on each item, explaining its use.</p>
+<h3 id="chapter-9-macros-and-enums">Chapter 9: Macros and Enums</h3>
+<p>Names of macros defining constants and labels in enums are in uppercase:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb24-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb24-1" aria-hidden="true"></a>    <span class="pp">#define CONSTANT 0x12345</span></span></code></pre></div>
+<p>Enums are preferred when defining several related constants. Note, however, that enum arguments to public functions are not permitted.</p>
+<p>Macro names should be in uppercase, but macros resembling functions may be written in lower case. Generally, inline functions are preferable to macros resembling functions.</p>
+<p>Macros with multiple statements should be enclosed in a do - while block:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb25-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb25-1" aria-hidden="true"></a>    <span class="pp">#define macrofun(a, b, c)   \</span></span>
+<span id="cb25-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb25-2" aria-hidden="true"></a><span class="pp">        do {                    \</span></span>
+<span id="cb25-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb25-3" aria-hidden="true"></a><span class="pp">            if (a == 5)         \</span></span>
+<span id="cb25-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb25-4" aria-hidden="true"></a><span class="pp">                do_this(b, c);  \</span></span>
+<span id="cb25-5"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb25-5" aria-hidden="true"></a><span class="pp">        } while (0)</span></span></code></pre></div>
+<p>Do not write macros that affect control flow:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb26-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb26-1" aria-hidden="true"></a>    <span class="pp">#define FOO(x)                 \</span></span>
+<span id="cb26-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb26-2" aria-hidden="true"></a><span class="pp">        do {                       \</span></span>
+<span id="cb26-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb26-3" aria-hidden="true"></a><span class="pp">            if (blah(x) &lt; 0)       \</span></span>
+<span id="cb26-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb26-4" aria-hidden="true"></a><span class="pp">                return -EBUGGERED; \</span></span>
+<span id="cb26-5"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb26-5" aria-hidden="true"></a><span class="pp">        } while(0)</span></span></code></pre></div>
+<p>Do not write macros that depend on having a local variable with a magic name:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb27-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb27-1" aria-hidden="true"></a>    <span class="pp">#define FOO(val) bar(index, val)</span></span></code></pre></div>
+<p>It is confusing to the reader and is prone to breakage from seemingly innocent changes.</p>
+<p>Do not write macros that are l-values:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb28-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb28-1" aria-hidden="true"></a>    FOO(x) = y</span></code></pre></div>
+<p>This will cause problems if, e.g., FOO becomes an inline function.</p>
+<p>Be careful of precedence. Macros defining an expression must enclose the expression in parentheses unless the expression is a literal or a function application:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb29-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb29-1" aria-hidden="true"></a>    <span class="pp">#define SOME_LITERAL 0x4000</span></span>
+<span id="cb29-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb29-2" aria-hidden="true"></a>    <span class="pp">#define CONSTEXP (SOME_LITERAL | 3)</span></span>
+<span id="cb29-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb29-3" aria-hidden="true"></a>    <span class="pp">#define CONSTFUN foo(0, CONSTEXP)</span></span></code></pre></div>
+<p>Beware of similar issues with macros using parameters. Put parentheses around uses of macro arguments unless they are passed on as-is to a further macro or function. For example,</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb30-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb30-1" aria-hidden="true"></a><span class="pp">#define MACRO(a,b) ((a) * func(a, b))</span></span></code></pre></div>
+<p>The <a href="https://gcc.gnu.org/onlinedocs/" title="GCC online documentation">GNU cpp manual</a> deals with macros exhaustively.</p>
+<h3 id="chapter-12-editor-modelines">Chapter 12: Editor modelines</h3>
+<p>Some editors can interpret configuration information embedded in source files, indicated with special markers. For example, emacs interprets lines marked like this:</p>
+<p>-<em>- mode: c -</em>-</p>
+<p>Or like this:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb31-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb31-1" aria-hidden="true"></a>    <span class="co">/*</span></span>
+<span id="cb31-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb31-2" aria-hidden="true"></a><span class="co">    Local Variables:</span></span>
+<span id="cb31-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb31-3" aria-hidden="true"></a><span class="co">    compile-command: "gcc -DMAGIC_DEBUG_FLAG foo.c"</span></span>
+<span id="cb31-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb31-4" aria-hidden="true"></a><span class="co">    End:</span></span>
+<span id="cb31-5"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb31-5" aria-hidden="true"></a><span class="co">    */</span></span></code></pre></div>
+<p>Vim interprets markers that look like this:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb32-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb32-1" aria-hidden="true"></a>    <span class="co">/* vim:set sw=8 noet */</span></span></code></pre></div>
+<p>Do not include any of these in source files. People have their own personal editor configurations, and your source files should not override them. This includes markers for indentation and mode configuration. People may use their own custom mode, or may have some other magic method for making indentation work correctly.</p>
+<h3 id="chapter-15-expressions">Chapter 15: Expressions</h3>
+<p>Avoid needless parentheses as far as reasonable. For example, do not write</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb34-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb34-1" aria-hidden="true"></a>    <span class="cf">if</span> ((p == NULL) &amp;&amp; (!f(((<span class="dv">2</span> * x) + y) == (z++))))</span></code></pre></div>
+<p>but</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb35-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb35-1" aria-hidden="true"></a>    <span class="cf">if</span> (p == NULL &amp;&amp; !f(<span class="dv">2</span> * x + y == z++)).</span></code></pre></div>
+<p>For clarity, always put parentheses when mixing the logical <code>&amp;&amp;</code> and <code>||</code> operators, mixing comparison operators like <code>&lt;=</code> and <code>==</code>, or mixing bitwise operators like <code>&amp;</code> and <code>|</code>. For example,</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb36-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb36-1" aria-hidden="true"></a>    <span class="cf">if</span> ((a &amp;&amp; b) || c)</span>
+<span id="cb36-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb36-2" aria-hidden="true"></a>    <span class="cf">if</span> ((a &lt;= b) == ((c &gt;= d) != (e &lt; f)))</span>
+<span id="cb36-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb36-3" aria-hidden="true"></a>    x = (a &amp; b) ^ (c | d)</span></code></pre></div>
+<p>Regarding parentheses in macro definitions see the <a href="https://www.opensslX.org/policies/technical/coding-style.html#chapter-9-macros-and-enums">chapter on macros</a>.</p>
+<p>In comparisons with constants (including <code>NULL</code> and other constant macros) place the constant on the right-hand side of the comparison operator. For example,</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb37-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb37-1" aria-hidden="true"></a>    <span class="cf">while</span> (i++ &lt; <span class="dv">10</span> &amp;&amp; p != NULL)</span></code></pre></div>
+<p>Do not use implicit checks for numbers (not) being <code>0</code> or pointers (not) being <code>NULL</code>. For example, do not write</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb38-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb38-1" aria-hidden="true"></a>    <span class="cf">if</span> (i)</span>
+<span id="cb38-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb38-2" aria-hidden="true"></a>    <span class="cf">if</span> (!(x &amp; MASK))</span>
+<span id="cb38-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb38-3" aria-hidden="true"></a>    <span class="cf">if</span> (!strcmp(a, <span class="st">"FOO"</span>))</span>
+<span id="cb38-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb38-4" aria-hidden="true"></a>    <span class="cf">if</span> (!(p = BN_new()))</span></code></pre></div>
+<p>but do this instead:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb39-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb39-1" aria-hidden="true"></a>    <span class="cf">if</span> (i != <span class="dv">0</span>)</span>
+<span id="cb39-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb39-2" aria-hidden="true"></a>    <span class="cf">if</span> ((x &amp; MASK) == <span class="dv">0</span>)</span>
+<span id="cb39-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb39-3" aria-hidden="true"></a>    <span class="cf">if</span> (strcmp(a, <span class="st">"FOO"</span>) == <span class="dv">0</span>)</span>
+<span id="cb39-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb39-4" aria-hidden="true"></a>    <span class="cf">if</span> ((p = BN_new()) == NULL)</span></code></pre></div>
+<p>Boolean values shall be used directly as usual, e.g.,</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb40-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb40-1" aria-hidden="true"></a><span class="cf">if</span> (check(x) &amp;&amp; !success(y))</span></code></pre></div>
+<p>Note: Many functions can return <code>0</code> or a negative value on error and the Boolean forms need to be used with care.</p>
+<p>If you need to break an expression into multiple lines, make the line break before an operator, not after. It is preferred that such a line break is made before as low priority an operator as possible. Examples:</p>
+<ul>
+<li><p>not this:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb41-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb41-1" aria-hidden="true"></a><span class="cf">if</span> (somewhat_long_function_name(foo) == <span class="dv">1</span> &amp;&amp; a_long_variable_name</span>
+<span id="cb41-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb41-2" aria-hidden="true"></a>    == <span class="dv">2</span>)</span></code></pre></div>
+<p>but rather:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb42-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb42-1" aria-hidden="true"></a><span class="cf">if</span> (somewhat_long_function_name(foo) == <span class="dv">1</span></span>
+<span id="cb42-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb42-2" aria-hidden="true"></a>    &amp;&amp; a_long_variable_name == <span class="dv">2</span>)</span></code></pre></div></li>
+<li><p>This is, however, still ok:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb43-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb43-1" aria-hidden="true"></a><span class="cf">if</span> (this_thing-&gt;this_freakishly_super_long_name(somewhat_long_name, <span class="dv">3</span>)</span>
+<span id="cb43-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb43-2" aria-hidden="true"></a>    == PRETTY_DARN_LONG_MACRO_NAME)</span></code></pre></div></li>
+</ul>
+<p>When appearing at the beginning of a line, operators can, but do not have to, get an extra indentation (+ 4 characters). For example,</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb44-1"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb44-1" aria-hidden="true"></a>    <span class="cf">if</span> (long_condition_expression_1</span>
+<span id="cb44-2"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb44-2" aria-hidden="true"></a>            &amp;&amp; condition_expression_2) {</span>
+<span id="cb44-3"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb44-3" aria-hidden="true"></a>        statement_1;</span>
+<span id="cb44-4"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb44-4" aria-hidden="true"></a>        statement_2;</span>
+<span id="cb44-5"><a href="https://www.opensslX.org/policies/technical/coding-style.html#cb44-5" aria-hidden="true"></a>    }</span></code></pre></div>
+<h3 id="chapter-16-references">Chapter 16: References</h3>
+<p><a href="http://cm.bell-labs.com/cm/cs/cbook" title="The C Programming Language, Second Edition">The C Programming Language</a>, Second Edition by Brian W. Kernighan and Dennis M. Ritchie. Prentice Hall, Inc., 1988. ISBN 0-13-110362-8 (paperback), 0-13-110370-9 (hardback).</p>
+<p><a href="http://cm.bell-labs.com/cm/cs/tpop/" title="The Practice of Programming">The Practice of Programming</a> by Brian W. Kernighan and Rob Pike. Addison-Wesley, Inc., 1999. ISBN 0-201-61586-X.</p>
+<p><a href="https://www.gnu.org/manual/" title="GNU manuals">GNU manuals</a> - we’re in compliance with K&amp;R and this text - for cpp, gcc, gcc internals and indent.</p>
+<p><a href="http://www.open-std.org/JTC1/SC22/WG14/" title="International standardization working group for the programming language C">WG14</a> is the international standardization working group for the programming language C.</p>
+                <footer>
+                    You are here:
+                    <p><a href="https://www.opensslX.org/">Home</a> : <a href="https://www.opensslX.org/policies">Policies</a> : <a href="https://www.opensslX.org/policies/technical/">Technical</a></p>
+                    : <a href="https://www.opensslX.org/policies/technical/coding-style.html"></a>
+                    <br><a href="https://www.opensslX.org/sitemap.txt">Sitemap</a>
+                </footer>
+            </article>
+        </div>
+    <span class="toggle-sidebar"></span></div>
+</div>
+
+<footer role="contentinfo">
+    <p>
+        Please report problems with this website to webmaster at https://github.com/sediment-lfproject.
+    </p>
+    <p>
+        Copyright © 2023, SEDIMENT Project Authors.
+        All Rights Reserved.
+    </p>
+</footer>
+
+
+
+<app-frame-108304 id="redeviation-bs-sidebar" class="notranslate" aria-hidden="true" data-theme="default" data-pos="left"></app-frame-108304><div id="redeviation-bs-indicator" data-theme="default" class="redeviation-bs-fullHeight" style="height: 100%; top: 0%;"></div></body></html>
