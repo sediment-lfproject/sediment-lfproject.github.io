@@ -3,6 +3,7 @@
 :root {
     font-size: 12pt;
     --primary-color: #3a339a; 
+    --link-color: #9792e6; 
     --bg-color: #131313; 
     --border-color: #fefcf9; 
     --font-opposite-color: #000000; 
@@ -30,7 +31,7 @@ header {
     background: var(--primary-color);
     padding: 0 1rem;
     border-bottom: 1px solid var(--border-color);
-    position: fixed;
+    position: sticky;
     width: 100%;
     top: 0;
 }
@@ -61,15 +62,10 @@ header a {
     border-bottom: 1px solid var(--font-primary-color);
 } */
 
-main .content {
-    display: flex; 
-    justify-content: center;
-}
 .title {
     background-color: var(--primary-color);
     color: var(--font-primary-color);
     padding: 5rem;
-    padding-top: 7rem;
 }
 .title h2 {
     font-weight: 300;
@@ -103,8 +99,8 @@ main .content {
     max-width: 1000px;
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-around; */
-    margin: 2.5rem 0;
+    padding: 1rem;
+    margin: 0 auto;
 }
 .overview-figure img {
     max-width: 550px;
@@ -128,8 +124,10 @@ main .content {
 
 .community-main {
     margin-top: 3rem;
-    display: flex;
-    justify-content: center; 
+    /* display: flex; */
+    margin-inline: auto;
+    max-width: 50rem;
+    /* justify-content: center;  */
     flex-wrap: wrap;
 }
 .community-main section {
@@ -161,6 +159,21 @@ a:hover {
 .community-main h1 {
     margin: 0.5rem 0;
 } 
+
+.community-main h2 {
+    font-size: 13pt;
+}
+.community-main h3 {
+    font-size: 12pt;
+}
+.community-main p {
+    font-size: 9pt;
+    padding: 0.5rem;
+}
+
+.link {
+    color: var(--link-color);
+}
 
 .subsection {
     margin: 0.5rem 0;
