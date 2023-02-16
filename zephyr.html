@@ -1,0 +1,101 @@
+<!--
+ * Copyright (c) 2023 Peraton Labs
+ * SPDX-License-Identifier: Apache-2.0
+-->
+<h1 id="sediment-on-zephyr-based-devices">SEDIMENT on Zephyr-based
+Devices</h1>
+<p>This directory contains SEDIMENT on devices implemented on top of
+Zephyr, which currently includes Silicon Labs Giant Gecko.</p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#sediment-on-zephyr-based-devices">SEDIMENT on Zephyr-based
+Devices</a>
+<ul>
+<li><a href="#contents">Contents</a></li>
+<li><a href="#prerequisite">Prerequisite</a></li>
+<li><a href="#sediment-customizations">SEDIMENT Customizations</a></li>
+<li><a href="#build">Build</a></li>
+<li><a href="#flashing">Flashing</a></li>
+<li><a href="#configurations">Configurations</a></li>
+<li><a href="#monitoring-output">Monitoring Output</a></li>
+<li><a href="#test">Test</a></li>
+</ul></li>
+</ul>
+<h2 id="prerequisite">Prerequisite</h2>
+<p>Follow the instructions at <a
+href="https://docs.zephyrproject.org/latest/getting_started/index.html">Zephyr</a>
+to set up both Zephyr and its SDK. The following description refers to
+zephyrproject/zephyr as $ZEPHYR and the sediment installation directory
+as $SEDIMENT.</p>
+<h2 id="sediment-customizations">SEDIMENT Customizations</h2>
+<p>Create in zephyr a symbolic link to the root of the sediment
+repository.</p>
+<pre><code>    $ cd $ZEPHYR
+    $ ln -s $SEDIMENT .</code></pre>
+<h2 id="build">Build</h2>
+<p>To build a SEDIMENT app, do the following.</p>
+<p>Change directory to zephyr</p>
+<pre><code>    $ cd $ZEPHYR</code></pre>
+<p>Set board environment variable, efm32gg_stk3701a for Giant Gecko.</p>
+<pre><code>    $ export BOARD=efm32gg_stk3701a</code></pre>
+<p>Use the following command to build sediment for Giant Gecko. The
+–pristine argument can be omitted for subsequent build for the same
+board and app. If successful, the image will be left in
+build/zephyr/zephyr.hex or zephyr.bin.</p>
+<pre><code>    $ west build sediment/apps/giant --pristine
+    </code></pre>
+<p>If the BOARD environment variable is not set, add
+<code>-b &lt;BOARD&gt;</code> to the command</p>
+<pre><code>    $ west build -b efm32gg_stk3701a sediment/apps/giant --pristine
+    </code></pre>
+<p>The build will fail because of configuration errors. Copy the correct
+configurations as follows (replace giant with stm for STM32F767ZI).</p>
+<pre><code>    $ cp $SEDIMENT/apps/giant/doc/dot.config build/zephyr/.config</code></pre>
+<p>Rebuild without the –pristine option</p>
+<pre><code>    $ west build -b efm32gg_stk3701a sediment/apps/giant</code></pre>
+<h2 id="flashing">Flashing</h2>
+<p>To install SEDIMENT on a device, do the following.</p>
+<ol type="1">
+<li><p>Change directory to zephyr</p>
+<pre><code>$ cd $ZEPHYR</code></pre></li>
+<li><p>Connect the Giant Gecko to the host computer using USB and run
+the command below</p>
+<pre><code> $ west flash</code></pre></li>
+</ol>
+<p>Once the flashing is completed, the device will reset and start
+running. Note that, for Giant Gecko, SEGGER J-Link needs to be installed
+on the host. If not, download it from <a
+href="https://www.segger.com/downloads/jlink/">J-Link</a> and follow the
+<a
+href="https://eclipse-embed-cdt.github.io/debug/jlink/install/">instructions</a>
+to install.</p>
+<h2 id="configurations">Configurations</h2>
+<p>As initially built, default board ID, server IP addresses and ports
+and other settings are included. To provision a device, prepare a
+configuration file, based on the sample, e.g., in
+$SEDIMENT/configs/boards/gg-01. Changes the options (IP address, in
+particular) appropriately.</p>
+<p>Connect the board to the host PC.</p>
+<p>Open a serial terminal app, e.g. minicom or gtkterm, and connect to
+the detected deivce, e.g. at /dev/ttyACM0</p>
+<pre><code>    $ minicom -D /dev/ttyACM0 </code></pre>
+<p>In a separate terminal, run the provisioning script and give the
+configuration file as an argument as follows.</p>
+<pre><code>    $ python $SEDIMENT/utils/provision.py provision $SEDIMENT/configs/boards/gg-01 </code></pre>
+<p>This will write, via UART, the configurations into the board’s
+non-volatile memory, from which sediments loads the power-on settings.
+These settings remain on the boards even after the sediment app is
+updated or the device is power-cycled.</p>
+<h2 id="monitoring-output">Monitoring Output</h2>
+<p>Use a serial terminal, e.g. minicom on Linux or putty on Windows, to
+monitor the messages with the following settings:</p>
+<pre><code>    Speed: 115200
+    Data: 8 bits
+    Parity: None
+    Stop bits: 1</code></pre>
+<p>On Linux, do the following, assuming the deivce is detected at
+/dev/ttyACM0.</p>
+<pre><code>    $ minicom -D /dev/ttyACM0 </code></pre>
+<h2 id="test">Test</h2>
+<p>Review <a href="../../servers/README.md">Test Configuration</a> to
+see how to set up the servers and test it together with the device.</p>
