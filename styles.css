@@ -100,6 +100,9 @@ header a {
     max-width: 50rem;
     margin-inline: auto;
 }
+ul {
+    margin-left: 1rem;
+}
 .overview {
     max-width: 1000px;
     display: flex;
