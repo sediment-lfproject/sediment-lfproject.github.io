@@ -95,6 +95,11 @@ header a {
     border-radius: 999px;
 }
 
+.main {
+    padding: 2rem;
+    max-width: 50rem;
+    margin-inline: auto;
+}
 .overview {
     max-width: 1000px;
     display: flex;
