@@ -1,6 +1,6 @@
-landing page
+landing page (done)
 
-docs
+docs (missing)
     - users manual
         - building, installation and usage
     - information for developers
@@ -13,19 +13,10 @@ docs
     - news
         - initial LF announcement
 
-community
-    - maintaining
-        - process, roles, responsibilities and guidelines
-        - current TSC members  
-        - current maintainers 
-        - current committers
-    - contributing
-        - contributing guidelines
-        - coding style guidelines 
-        - submitting pull requests 
-        - forum 
+community (incomplete)
+    - coding style guidelines (missing link)
 
-
-charter
-    - technical charter
+charter (incomplete)
+    - technical charter (charter.pdf missing)
     - future roadmap
+
